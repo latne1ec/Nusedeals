@@ -1,0 +1,26 @@
+//[FIRApp configure];
+
+//self.ref = [FIRDatabase database].reference;
+
+//    [[FIRAuth auth]
+//     createUserWithEmail:@"test@test.com"
+//     password:@"password"
+//     completion:^(FIRUser *_Nullable user,
+//                  NSError *_Nullable error) {
+//         // ...
+//     }];
+
+//    FIRUser *user = [FIRAuth auth].currentUser;
+//
+//    NSArray *array = [NSArray arrayWithObjects:@"test.com", @"test2.com", nil];
+
+
+//    NSString *key = [[_ref child:@"venues"] childByAutoId].key;
+//    NSDictionary *post = @{@"venueName": @"Example Two",
+//                           @"venueDescription": @"Lorem Ipsum",
+//                           @"venueImageUrls" : array };
+//    NSDictionary *childUpdates = @{[@"/venues/" stringByAppendingString:key]: post,
+//                                   [NSString stringWithFormat:@"/venues/%@/", key]: post};
+//    [_ref updateChildValues:childUpdates];
+
+
