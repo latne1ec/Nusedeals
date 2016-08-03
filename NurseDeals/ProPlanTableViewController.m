@@ -11,6 +11,7 @@
 
 @interface ProPlanTableViewController ()
 
+
 @end
 
 @implementation ProPlanTableViewController
@@ -55,6 +56,12 @@
         [self.completeButton addTarget:self action:@selector(cancelSubscriptionTapped) forControlEvents:UIControlEventTouchUpInside];
     }
     
+}
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    if (_fromDetailView) {
+        [self.dvc updateProOfferDetails];
+    }
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

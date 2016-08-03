@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import <Stripe/Stripe.h>
 #import "TSMessageView.h"
+#import "DetailTableViewController.h"
+
 
 @interface ProPlanTableViewController : UITableViewController <TSMessageViewProtocol, NSURLConnectionDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
@@ -18,9 +20,10 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *cellThree;
 @property (weak, nonatomic) IBOutlet UITableViewCell *cellFour;
 @property (weak, nonatomic) IBOutlet UIButton *completeButton;
-
 @property (weak, nonatomic) IBOutlet UITextField *cardNumberTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *expTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *cvcTextfield;
+@property (nonatomic) BOOL fromDetailView;
+@property (nonatomic, strong) DetailTableViewController *dvc;
 
 @end

@@ -9,12 +9,15 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <Stripe/Stripe.h>
+#import <OneSignal/OneSignal.h>
 
 
 NSString * const StripePublishableKey = @"pk_live_QsWMJxhZQR2a46HwWN9laWV3";
 NSString * const StripeTestKey = @"pk_test_KUDRIYhPLVu3TQaxOSWuh6WK";
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) OneSignal *oneSignal;
 
 @end
 
@@ -31,6 +34,21 @@ NSString * const StripeTestKey = @"pk_test_KUDRIYhPLVu3TQaxOSWuh6WK";
     
     //Stripe Keys
     [Stripe setDefaultPublishableKey:StripeTestKey];
+    
+    //[OneSignal setLogLevel:ONE_S_LL_DEBUG visualLevel:ONE_S_LL_DEBUG];
+    
+    self.oneSignal = [[OneSignal alloc] initWithLaunchOptions:launchOptions
+                                                        appId:@"1c2fb2c0-2f64-4508-a775-7f2b637de403"
+                                           handleNotification:^(NSString *message, NSDictionary *additionalData, BOOL isActive) {
+                                               if (additionalData) {
+                                                   NSString* customKey = additionalData[@"customKey"];
+                                                   if (customKey)
+                                                       NSLog(@"");
+                                               }
+                                           } autoRegister:true];
+    
+    [self.oneSignal enableInAppAlertNotification:true];
+
 
     
     //Nav Bar Back Button Color

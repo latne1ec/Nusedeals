@@ -45,5 +45,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *proMembersButton;
 @property (weak, nonatomic) IBOutlet UIButton *claimOfferButton;
 
+-(void)updateProOfferDetails;
+
 @end
 

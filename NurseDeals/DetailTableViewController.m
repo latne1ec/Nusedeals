@@ -91,6 +91,8 @@
         self.proMembersButton.enabled = false;
     }
     
+    _cellFour.backgroundColor = [UIColor whiteColor];
+    
     self.claimOfferButton.layer.cornerRadius = 18;
     self.claimOfferButton.alpha = 0.9;
     [self.claimOfferButton addTarget:self action:@selector(claimOfferTapped) forControlEvents:UIControlEventTouchUpInside];
@@ -108,6 +110,17 @@
     
 }
 
+-(void)updateProOfferDetails {
+    
+    self.offerLabel.text = self.venue.proMemberOffer;
+    NSString *offerString = self.venue.proMemberOffer;
+    NSString *strippedString = [offerString stringByReplacingOccurrencesOfString:@"OFF" withString:@""];
+    self.bannerOfferLabel.text = [NSString stringWithFormat:@"-%@", strippedString];
+    [self.proMembersButton setTitle:@"Exclusive Pro Member Offer" forState:UIControlStateNormal];
+    self.proMembersButton.enabled = false;
+    
+}
+
 -(void)openMaps {
     
     CLLocationDegrees lat = self.venueLocation.latitude;
@@ -122,6 +135,9 @@
 -(void)upgradeToProTapped {
     
     ProPlanTableViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProPlan"];
+    
+    destViewController.fromDetailView = true;
+    destViewController.dvc = self;
     
     UINavigationController *navigationController =
     [[UINavigationController alloc] initWithRootViewController:destViewController];

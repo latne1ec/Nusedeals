@@ -35,6 +35,9 @@
     
     //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Pro Plan" style:UIBarButtonItemStylePlain target:self action:@selector(logoutButtonTapped)];
     
+    [[PFUser currentUser] removeObjectForKey:@"claimedOfferIds"];
+    [[PFUser currentUser] saveInBackground];
+    
 }
 
 
